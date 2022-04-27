@@ -1,27 +1,36 @@
-require('./config/config');
-require('./models/db');
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+let express = require('express')
+let app = express();
 
-const rtsIndex = require('./routes/index.router');
+let bodyParser = require('body-parser');
+let mongoose = require('mongoose');
+let cors = require('cors');
 
-var app = express();
+let url = 'mongodb://localhost:27017/GrocerryApp';
 
-// middleware
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/api', rtsIndex);
 
-// error handler
-app.use((err, req, res, next) => {
-    if (err.name === 'ValidationError') {
-        var valErrors = [];
-        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
-        res.status(422).send(valErrors)
-    }
-});
+//db connection
+const mongodb = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
-// start server
-app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));
+mongoose.connect(url, mongodb); 
+mongoose.connection;
+
+app.listen(3000, () => console.log('Server is running on port number 3000'));
+
+var Users = require('./Users/router/user.router.js');
+var Employee = require('./Employees/router/emp.router.js');
+var Admin = require('./Admin/router/admin.router.js');
+var Product = require('./Products/router/product.router.js');
+
+app.use('/product', Product);
+app.use('/', Users);
+app.use('/emp', Employee);
+app.use('/admin', Admin);
+
+
