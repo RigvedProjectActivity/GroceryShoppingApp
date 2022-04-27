@@ -5,3 +5,11 @@
 
 2. MongoDB (database and collection creation)
     (Vikas)
+
+*27-04-022*
+1. Working on Products
+   (Gopal)
+2. Working on Carts
+   (Nitesh)
+3. Working on User And Admin
+   (vikas)
