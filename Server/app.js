@@ -38,9 +38,14 @@ SignInModel.find({},async (error,data)=>{
 
 
 var adminSignIn=require("./router/admin/signin.router.js");
+var User = require("./router/user/user.router.js");
+const Employee = require("./router/employee/employee.router.js");
+const empSignIn = require("./router/employee/signin.router.js");
 
 
 app.use("/admin",adminSignIn);
-
+app.use("/admin/employee",Employee);
+app.use("/user", User);
+app.use("/employee", Employee)
 
 app.listen(PORT,()=>console.log(`Server running on port number ${PORT}`));
