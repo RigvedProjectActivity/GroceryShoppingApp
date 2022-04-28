@@ -1,36 +1,46 @@
+let express = require("express");
+let app = require("express")();
 
-let express = require('express')
-let app = express();
+let mongoose = require("mongoose");
+let bodyParser = require("body-parser");
+let cors = require("cors");
+const SignInModel = require('./model/admin/signin.model');
 
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
-let cors = require('cors');
+app.use(express.static(process.cwd()));
 
-let url = 'mongodb://localhost:27017/GrocerryApp';
+const PORT = 3001 
 
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(bodyParser.json());
-app.use(cors());
-
-//db connection
-const mongodb = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
-mongoose.connect(url, mongodb); 
-mongoose.connection;
-
-app.listen(3000, () => console.log('Server is running on port number 3000'));
-
-var Users = require('./Users/router/user.router.js');
-var Employee = require('./Employees/router/emp.router.js');
-var Admin = require('./Admin/router/admin.router.js');
-var Product = require('./Products/router/product.router.js');
-
-app.use('/product', Product);
-app.use('/', Users);
-app.use('/emp', Employee);
-app.use('/admin', Admin);
+let url = "mongodb://localhost:27017/groceryStore";
 
 
+app.use(bodyParser.urlencoded({extended:true}));   
+app.use(bodyParser.json());                         
+app.use(cors());          
+
+
+const mongooseDb ={       
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+mongoose.connect(url,mongooseDb);   
+mongoose.connection
+
+
+SignInModel.find({},async (error,data)=>{
+    if(data.length==0){
+        adminLogin = new SignInModel();
+        adminLogin._id = "123";
+        adminLogin.Password = "admin123";
+        adminLogin.save();
+    }
+});
+
+
+
+var adminSignIn=require("./router/admin/signin.router.js");
+
+
+app.use("/admin",adminSignIn);
+
+
+app.listen(PORT,()=>console.log(`Server running on port number ${PORT}`));
