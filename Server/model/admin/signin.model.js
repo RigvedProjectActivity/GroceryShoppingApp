@@ -11,4 +11,3 @@ let SignInSchema = mongoose.Schema({
 let SignInModel = mongoose.model("modelAdminSigin",SignInSchema,"AdminCredentials");
 
 module.exports = SignInModel
-
