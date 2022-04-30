@@ -1,0 +1,29 @@
+<div>
+    <h2>Create Profile</h2>
+    <div class="form-group">
+        <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
+            <!--<label>User ID: </label>
+            <input type="text" name="id" class="form-control" ngModel required><br>-->
+            <label>Password: </label>
+            <input type="password" name="pass" class="form-control" ngModel required><br>
+            <label>First Name: </label>
+            <input type="text" name="newFname" class="form-control" ngModel required><br>
+            <label>Last Name: </label>
+            <input type="text" name="newLname" class="form-control" ngModel required><br>
+            <label>E-mail: </label>
+            <input type="text" name="newEmail" class="form-control" ngModel required><br>
+            <label>Phone Number: </label>
+            <input type="number" name="newPhone" class="form-control" ngModel required><br>
+            <label>Date of Birth: </label>
+            <input type="text" name="newDob" class="form-control" ngModel required><br>
+            <label>Address: </label>
+            <input type="text" name="newAdd" class="form-control" ngModel required><br>
+
+            <input type="submit" value="Create Profile" [disabled]="!profileRef.valid" class="btn btn-primary mr-2">
+            <input type="reset" value="Reset" class="btn btn-danger">
+        </form>
+        <br>
+        <br>
+        {{updateMsg}}
+    </div>
+</div>

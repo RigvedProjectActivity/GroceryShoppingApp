@@ -1,0 +1,33 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  .errorMessage{
+      color: crimson;
+  }
+
+  #productTable{
+    border: black ;
+    border-style: solid;
+    border-width: 2px;
+    background-color: wheat;
+    color: black;
+    margin-left: 100px;
+}
+
+th,td{
+    border: black solid 2px;
+    background-color: rgb(30, 116, 70);
+    text-align: center;
+    padding:5px;
+}
+
+td{
+    border: black solid 2px;
+    background-color: rgba(24, 148, 82, 0.5);
+    text-align: center;
+    padding:5px;
+}

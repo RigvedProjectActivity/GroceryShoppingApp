@@ -1,0 +1,31 @@
+<div>
+    <h2>Unlock Users</h2>
+    <div class="form-group">
+        <form #unlockRef="ngForm" (ngSubmit)="unlockUser(unlockRef.value)">
+            <label>ID: </label>
+            <input type="number" name="id" class="form-control" ngModel required><br>
+
+            <input type="submit" value="Unlock User" [disabled]="!unlockRef.valid" class="btn btn-primary mr-2">
+            <input type="reset" value="Reset" class="btn btn-danger">
+        </form>
+        <br>
+        <br>
+        {{userMsg}}
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ticket of tickets">
+                    <td>{{ticket._id}}</td>
+                    <td>{{ticket.ticket_message}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

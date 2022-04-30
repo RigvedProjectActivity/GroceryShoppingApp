@@ -1,0 +1,51 @@
+<app-admin-panel></app-admin-panel><br>
+
+<div *ngIf="type ==='daily'">
+    <h1>Report for Date: {{ query }}</h1>
+    <hr>
+</div>
+
+<div *ngIf="type ==='monthly'">
+    <h1>Report for {{ query }}</h1>
+    <hr>
+</div>
+
+<div *ngIf="type ==='user'">
+    <h1>Report for User Id: {{ query }}</h1>
+    <hr>
+</div>
+
+<div *ngIf="type ==='weekly'">
+  <h1>Report for Dates: {{ startDate }} to {{ endDate }}</h1>
+  <hr>
+</div>
+
+<div *ngIf="orders.length !== 0; else noData">
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">User Id</th>
+            <th scope="col">Status</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                          
+                <td>{{ order._id }}</td>
+                <td>{{ order.userID }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.timestamp | date:'short' }}</td>
+              </tr>
+        </tbody>
+      </table>
+    
+</div>
+
+<ng-template #noData>
+    <h3>There are no orders for your requested parameters.</h3>
+</ng-template>

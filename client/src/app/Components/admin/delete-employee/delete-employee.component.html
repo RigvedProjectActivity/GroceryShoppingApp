@@ -1,0 +1,14 @@
+<form [formGroup]="deleteEmployeeForm" (ngSubmit)="deleteEmployee()">
+    <div class="form-row">
+      <div class="col">
+        <input formControlName="id" name="id" type="text" class="form-control" placeholder="Employee ID">
+        <span class="text-danger" *ngIf="(deleteEmployeeForm.get('id').touched || submitted) && deleteEmployeeForm.get('id').errors?.required">
+          Employee ID is required
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-danger mb-2">Delete</button>
+    </div>
+</form>
