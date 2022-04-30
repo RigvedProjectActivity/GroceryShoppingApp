@@ -1,0 +1,25 @@
+<div>
+    <h2>Your Funds</h2>
+    <label>Account Number</label>
+    <input type="text" class="form-control" #idRef>
+    <br>
+    <input type="button" value="Click to View Funds" class="btn btn-success" (click)=getFunds(idRef.value)>
+    <br>
+    <br>
+    {{funds}}
+    <br>
+    <hr>
+    <h2>Add Funds to Your Account</h2>
+    <div class="form-group">
+        <form #fundsRef="ngForm" (ngSubmit)="addFunds(fundsRef.value)">
+            <label>Account Number</label>
+            <input type="number" name="accNum" class="form-control" ngModel><br>
+            <label>Funds to Add</label>
+            <input type="number" name="funds" class="form-control" min="1" ngModel><br>
+            <input type="submit" value="Add Funds" class="btn btn-primary">
+        </form>
+        <br>
+        <br>
+        {{fundMsg}}
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<app-admin-panel></app-admin-panel><br>
+
+<h1>Employee Product Change Requests</h1>
+<hr>
+
+<div *ngIf="requests.length!==0; else noData">
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Ticket Id</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Quantity</th>
+            <th scope="col">Product Task</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requests">
+                          
+                <td>{{ request._id }}</td>
+                <td>{{ request.EmployeeID }}</td>
+                <td>{{ request.ProductID }}</td>
+                <td>{{ request.ProductQuantity }}</td> 
+                <td>{{ request.ProductTask }}</td>
+
+              </tr>
+        </tbody>
+      </table>
+    
+</div>
+
+<ng-template #noData>
+    <h3>There are no change requests.</h3>
+</ng-template>

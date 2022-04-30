@@ -1,0 +1,36 @@
+<form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
+    <div class="form-row">
+      <div class="col">
+        <input formControlName="firstName" name="firstName" type="text" class="form-control" placeholder="First Name">
+        <span class="text-danger" *ngIf="(addEmployeeForm.get('firstName').touched || submitted) && addEmployeeForm.get('firstName').errors?.required">
+          First Name is required
+        </span>
+      </div>
+
+      <br>
+      <div class="col">
+        <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
+        <span class="text-danger" *ngIf="(addEmployeeForm.get('lastName').touched || submitted) && addEmployeeForm.get('lastName').errors?.required">
+          Last Name is required
+        </span>
+      </div>
+      <br>
+      <div class="col">
+        <input formControlName="id" name="id" type="text" class="form-control" placeholder="Employee ID">
+        <span class="text-danger" *ngIf="(addEmployeeForm.get('id').touched || submitted) && addEmployeeForm.get('id').errors?.required">
+          Employee ID is required
+        </span>
+      </div>
+      <br>
+      <div class="col">
+        <input formControlName="emailID" name="emailID" type="text" class="form-control" placeholder="Email">
+        <span class="text-danger" *ngIf="(addEmployeeForm.get('emailID').touched || submitted) && addEmployeeForm.get('emailID').errors?.required">
+          Email is required
+        </span>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success mb-2">Add</button>
+      </div>
+  </form>
