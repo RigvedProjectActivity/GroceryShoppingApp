@@ -1,27 +1,34 @@
-<div>
-    <h2>Edit Profile</h2>
-    <div class="form-group">
-        <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
-            <label>User ID: </label>
-            <input type="text" name="id" class="form-control" ngModel required><br>
-            <label>Current Password: </label>
-            <input type="password" name="pass" class="form-control" ngModel required><br>
-            <label>New Password: </label>
-            <input type="password" name="newPass" class="form-control" ngModel required minlength="6" #newPass="ngModel"><br>
-            <div *ngIf="newPass.invalid && (newPass.dirty || newPass.touched)">
-                <div class="errorMessage" *ngIf="newPass.errors.required">
-                    Password is required.
+<div class="container pt-2">
+    <div class="row justify-content-sm-center pt-3">
+        <div class="col-sm-6 shadow round pb-3">
+            <h3 class="text-center pt-3 text-secondary">Edit Profile</h3>
+            <div class="form-group">
+                <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
+                    <label>User ID: </label>
+                    <input type="text" name="id" class="form-control" ngModel required><br>
+                    <label>Current Password: </label>
+                    <input type="password" name="pass" class="form-control" ngModel required><br>
+                    <label>New Password: </label>
+                    <input type="password" name="newPass" class="form-control" ngModel required minlength="6"
+                        #newPass="ngModel"><br>
+                    <div *ngIf="newPass.invalid && (newPass.dirty || newPass.touched)">
+                        <div class="errorMessage" *ngIf="newPass.errors.required">
+                            Password is required.
+                        </div>
+                        <div class="errorMessage" *ngIf="newPass.errors.minlength">
+                            Password must be at least 6 characters long.
+                        </div>
+                    </div>
+                    <div class="text-center">
+                    <input type="submit" value="Update Profile" [disabled]="!profileRef.valid"
+                        class="btn btn-primary mr-2">
+                    <input type="reset" value="Reset" class="btn btn-danger mx-2">
                 </div>
-                <div class="errorMessage" *ngIf="newPass.errors.minlength">
-                    Password must be at least 6 characters long.
-                </div>
+                </form>
+                <br>
+                <br>
+                {{updateMsg}}
             </div>
-
-            <input type="submit" value="Update Profile" [disabled]="!profileRef.valid" class="btn btn-primary mr-2">
-            <input type="reset" value="Reset" class="btn btn-danger">
-        </form>
-        <br>
-        <br>
-        {{updateMsg}}
+        </div>
     </div>
 </div>

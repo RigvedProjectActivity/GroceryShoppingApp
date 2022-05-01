@@ -1,12 +1,15 @@
-<div>
-    <h2>Unlock Users</h2>
+<div class="container pt-2">
+    <div class="row justify-content-sm-center pt-3">
+        <div class="col-sm-6 shadow round pb-3">
+            <h3 class="text-center pt-3 text-secondary">UNLOCK USER</h3>
     <div class="form-group">
         <form #unlockRef="ngForm" (ngSubmit)="unlockUser(unlockRef.value)">
             <label>ID: </label>
             <input type="number" name="id" class="form-control" ngModel required><br>
-
+            <div class="text-center">
             <input type="submit" value="Unlock User" [disabled]="!unlockRef.valid" class="btn btn-primary mr-2">
-            <input type="reset" value="Reset" class="btn btn-danger">
+            <input type="reset" value="Reset" class="btn btn-danger mx-2">
+        </div>
         </form>
         <br>
         <br>

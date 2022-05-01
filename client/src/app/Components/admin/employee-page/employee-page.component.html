@@ -1,65 +1,63 @@
+<div class="container">
+  <app-admin-panel></app-admin-panel>
+  <br>
+  <h1>Modify Employee List</h1>
+  <hr>
 
-    <app-admin-panel></app-admin-panel>
-    <br>
-    <h1>Modify Employee List</h1>
-    <hr> 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <div class="card" style="width: 25rem;">
-                    <div class="card-body">
-                        <h3 class="card-header">Add Employee</h3>
-                        <app-add-employee></app-add-employee>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card" style="width: 25rem;">
-                    
-                    <div class="card-body">
-                        <h3 class="card-header">Delete Employee</h3>
-                        <app-delete-employee></app-delete-employee>
-                    </div>
-                  </div>
-            </div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="card" style="width: 25rem;">
+          <div class="card-body">
+            <h3 class="card-header">Add Employee</h3>
+            <app-add-employee></app-add-employee>
           </div>
-    </div>
-    
-    <br>
-    <h1>Employee Details</h1>
-        <hr> 
+        </div>
+      </div>
 
-    <div *ngIf="employees.length !== 0; else noData">
-         <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Employee Id</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let employee of employees">
-                          
-                <td>{{ employee._id }}</td>
-                <td>{{ employee.firstName }}</td>
-                <td>{{ employee.lastName }}</td>
-                <td>{{ employee.emailID }}</td>
-              </tr>
-        </tbody>
-      </table>
+      <div class="col-6">
+        <div class="card" style="width: 25rem;">
+
+          <div class="card-body">
+            <h3 class="card-header">Delete Employee</h3>
+            <app-delete-employee></app-delete-employee>
+          </div>
+        </div>
+      </div>
 
     </div>
+  </div>
 
-    <ng-template #noData>
-      <h3>There are no employees in the database.</h3>
+  <br>
+  <h1>Employee Details</h1>
+  <hr>
+
+  <div *ngIf="employees.length !== 0; else noData">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Employee Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+
+          <td>{{ employee._id }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.emailID }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <ng-template #noData>
+    <h3>There are no employees in the database.</h3>
   </ng-template>
-   
 
 
-
-
+</div>
