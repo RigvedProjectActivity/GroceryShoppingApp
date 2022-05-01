@@ -1,33 +1,46 @@
-<div>
-    <h2>Change Order Status</h2>
-    <div class="form-group">
-        <form #orderRef="ngForm" (ngSubmit)="editOrder(orderRef.value)">
-            <label>Order ID: </label>
-            <input type="number" name="id" class="form-control" ngModel required><br>
-            <label>New Status: </label>
-            <input type="text" name="status" class="form-control" ngModel required><br>
+<div class="container pt-2">
+    <div class="row justify-content-sm-center pt-3">
+        <div class="col-sm-6 shadow round pb-3">
+            <h3 class="text-center pt-3 text-secondary">Change Order Status</h3>
+            <div class="form-group">
+                <form #orderRef="ngForm" (ngSubmit)="editOrder(orderRef.value)">
+                    <label>Order ID: </label>
+                    <input type="number" name="id" class="form-control" ngModel required><br>
 
-            <input type="submit" value="Update Order" [disabled]="!orderRef.valid" class="btn btn-primary mr-2">
-            <input type="reset" value="Reset" class="btn btn-danger">
-        </form>
-        <br>
-        <br>
-        {{orderMsg}}
-    </div>
-    <div class="container">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Order ID</th>
-                    <th>Order Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders">
-                    <td>{{order._id}}</td>
-                    <td>{{order.status}}</td>
-                </tr>
-            </tbody>
-        </table>
+                    <label>Status: </label>
+                    <select class="custom-select form-control" type="text" name="status" ngModel required>
+                        <option selected>Shipped</option>
+                        <option>Dispatched</option>
+                        <option>Delivered</option>
+                        <option>Cancel</option>
+                    </select>
+
+                    <div class="my-3 text-center">
+                        <input type="submit" value="Update Order" [disabled]="!orderRef.valid"
+                            class="btn btn-warning mr-2">
+                        <input type="reset" value="Reset" class="btn btn-danger mx-2">
+                    </div>
+                </form>
+                <br>
+                <br>
+                {{orderMsg}}
+            </div>
+            <div class="container">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td>{{order._id}}</td>
+                            <td>{{order.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
