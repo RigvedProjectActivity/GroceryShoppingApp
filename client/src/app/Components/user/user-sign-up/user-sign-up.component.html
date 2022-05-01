@@ -1,26 +1,29 @@
-<div>
-    <h2>Create Profile</h2>
+<div class="container pt-2">
+    <div class="row justify-content-sm-center pt-3">
+        <div class="col-sm-6 shadow round pb-3">
+            <h2 class="text-center pt-3 text-secondary">Create Profile</h2>
+    
     <div class="form-group">
         <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
-            <!--<label>User ID: </label>
-            <input type="text" name="id" class="form-control" ngModel required><br>-->
-            <label>Password: </label>
-            <input type="password" name="pass" class="form-control" ngModel required><br>
+
             <label>First Name: </label>
             <input type="text" name="newFname" class="form-control" ngModel required><br>
             <label>Last Name: </label>
             <input type="text" name="newLname" class="form-control" ngModel required><br>
             <label>E-mail: </label>
             <input type="text" name="newEmail" class="form-control" ngModel required><br>
+            <label>Password: </label>
+            <input type="password" name="pass" class="form-control" ngModel required><br>
             <label>Phone Number: </label>
             <input type="number" name="newPhone" class="form-control" ngModel required><br>
             <label>Date of Birth: </label>
-            <input type="text" name="newDob" class="form-control" ngModel required><br>
+            <input type="date" name="newDob" class="form-control" ngModel required><br>
             <label>Address: </label>
-            <input type="text" name="newAdd" class="form-control" ngModel required><br>
-
-            <input type="submit" value="Create Profile" [disabled]="!profileRef.valid" class="btn btn-primary mr-2">
-            <input type="reset" value="Reset" class="btn btn-danger">
+            <input type="text" name="newAdd" class="form-control" ngModel required ><br>
+                <div class=" text-center">
+            <input type="submit" value="Create Profile" [disabled]="!profileRef.valid" class="btn btn-primary my-2">
+            <input type="reset" value="Reset" class="btn btn-danger mx-2">
+        </div>
         </form>
         <br>
         <br>

@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="text-center my-2">
-                    <input class="btn btn-success" type="submit" [disabled]='!adminUpdateProductsRef.valid'
+                    <input class="btn btn-warning" type="submit" [disabled]='!adminUpdateProductsRef.valid'
                         value="Update Product" />
                 </div>
             </form>
@@ -69,7 +69,7 @@
             <hr>
             <h1>Existing Products</h1>
             <div>
-                <table id="productTable" border="1">
+                <table class="table table-borderless">
                     <tr>
                         <th>Product ID</th>
                         <th>Product</th>
