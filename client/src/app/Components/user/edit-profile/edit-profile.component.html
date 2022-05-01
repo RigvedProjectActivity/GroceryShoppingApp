@@ -1,5 +1,7 @@
-<div>
-    <h2>Edit Profile</h2>
+<div class="container pt-2">
+    <div class="row justify-content-sm-center pt-3">
+        <div class="col-sm-6 shadow round pb-3">
+            <h2 class="text-center pt-3 text-secondary">EDIT YOUR PROFILE</h2>
     <div class="form-group">
         <form #profileRef="ngForm" (ngSubmit)="editProfile(profileRef.value)">
             <label>User ID: </label>
@@ -17,7 +19,7 @@
             <label>Phone Number: </label>
             <input type="number" name="newPhone" class="form-control" ngModel required><br>
             <label>Date of Birth: </label>
-            <input type="text" name="newDob" class="form-control" ngModel required><br>
+            <input type="date" name="newDob" class="form-control" ngModel required><br>
             <label>Address: </label>
             <input type="text" name="newAdd" class="form-control" ngModel required><br>
 
