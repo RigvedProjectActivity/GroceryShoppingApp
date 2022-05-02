@@ -1,0 +1,31 @@
+<div class="d-grid mx-auto">
+    <ul class="nav center">
+        <li class="nav-item">  
+            <a (click)="sendRequestLink()" class="nav-link"> Send Request</a>
+        </li>
+        <li class="nav-item">
+            <a (click)="updateOrderStatusLink()" class="nav-link">Update Order Status</a>
+        </li>
+        <li class="nav-item">
+            <a (click)="unlockUsersLink()" class="nav-link">Unlock Users</a>
+        </li>
+        <li class="nav-item">
+            <a (click)="editProfileLink()" class="nav-link">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="Logout" (click)="logoutLink()" class="nav-link">Logout</a>
+        </li>
+    </ul>
+</div>
+<div *ngIf="displayOrder">
+    <app-update-order></app-update-order>
+</div>
+<div *ngIf="displayUnlock">
+    <app-unlock-users></app-unlock-users>
+</div>
+<div *ngIf="displayProfile">
+    <app-employee-profile></app-employee-profile>
+</div>
+<div *ngIf="sendRequest">
+    <app-employee-send-request></app-employee-send-request>
+</div>
